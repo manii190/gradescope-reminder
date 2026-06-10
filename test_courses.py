@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False)
+    browser = p.chromium.launch(headless=True)
 
     context = browser.new_context(
         storage_state="gradescope_login.json"
@@ -18,4 +18,3 @@ with sync_playwright() as p:
     input("Press Enter to close...")
 
     browser.close()
-    

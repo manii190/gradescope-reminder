@@ -102,7 +102,7 @@ async def get_all_assignments():
     all_assignments = []
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False)
+        browser = await p.chromium.launch(headless=True)
         context = await browser.new_context(storage_state=SESSION_FILE)
         page = await context.new_page()
 

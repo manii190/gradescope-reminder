@@ -14,7 +14,7 @@ async def get_all_courses():
     print("📚 Reading current semester courses from Gradescope...")
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False)
+        browser = await p.chromium.launch(headless=True)
         context = await browser.new_context(storage_state=SESSION_FILE)
         page = await context.new_page()
 
