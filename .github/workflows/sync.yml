@@ -29,4 +29,17 @@ jobs:
           echo '${{ secrets.GRADESCOPE_LOGIN_JSON }}' > gradescope_login.json
           
       - name: Run sync
-        run: python sync_tasks.py
+        run: |
+          python export_assignments.py
+          python sync_tasks.py
+      
+      - name: Commit updated files
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+      
+          git add assignments_export.json synced_assignments.json
+      
+          git commit -m "Update assignment data" || echo "No changes to commit"
+      
+          git push
