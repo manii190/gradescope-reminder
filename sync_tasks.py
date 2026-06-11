@@ -1,6 +1,7 @@
 import asyncio
 import json
 import os
+import hashlib
 from google_tasks import get_tasks_service
 from google_calendar import get_calendar_service
 from assignments import get_all_assignments
@@ -21,8 +22,17 @@ def save_synced(synced):
         json.dump(synced, file, indent=4)
 
 
+def clean_course_name(course):
+    return course.split("\n")[0].strip()
+
+
 def make_assignment_id(a):
-    return a["course_short"] + "|" + a["name"] + "|" + a["due_date_raw"]
+    course = clean_course_name(a["course_short"])
+    return course + "|" + a["name"] + "|" + a["due_date_raw"]
+
+
+def make_google_event_id(assignment_id):
+    return "gs" + hashlib.md5(assignment_id.encode()).hexdigest()
 
 
 async def main():
@@ -34,29 +44,16 @@ async def main():
     assignments = await get_all_assignments()
 
     for a in assignments:
+        course = clean_course_name(a["course_short"])
         assignment_id = make_assignment_id(a)
+        event_id = make_google_event_id(assignment_id)
 
-        if assignment_id in synced:
-            print("Skipped already synced:", a["name"])
-            continue
-
-        title = a["course_short"] + " — " + a["name"]
-
-        task = {
-            "title": title,
-            "notes": "Gradescope link: " + a["link"]
-        }
-
-        tasks_service.tasks().insert(
-            tasklist="@default",
-            body=task
-        ).execute()
-
-        print("Added task:", title)
+        title = course + " — " + a["name"]
 
         event = {
+            "id": event_id,
             "summary": title,
-            "description": "Gradescope link: " + a["link"],
+            "description": "Gradescope link: " + a.get("link", ""),
             "start": {
                 "dateTime": a["due_date_iso"],
                 "timeZone": "America/Phoenix"
@@ -75,15 +72,40 @@ async def main():
             }
         }
 
-        calendar_service.events().insert(
-            calendarId="primary",
-            body=event
-        ).execute()
+        try:
+            calendar_service.events().update(
+                calendarId="primary",
+                eventId=event_id,
+                body=event
+            ).execute()
 
-        print("Added calendar event:", title)
+            print("Updated calendar event:", title)
 
-        synced.append(assignment_id)
-        save_synced(synced)
+        except Exception:
+            calendar_service.events().insert(
+                calendarId="primary",
+                body=event
+            ).execute()
+
+            print("Added calendar event:", title)
+
+        if assignment_id not in synced:
+            task = {
+                "title": title,
+                "notes": "Gradescope link: " + a.get("link", "")
+            }
+
+            tasks_service.tasks().insert(
+                tasklist="@default",
+                body=task
+            ).execute()
+
+            print("Added task:", title)
+
+            synced.append(assignment_id)
+            save_synced(synced)
+        else:
+            print("Skipped task already synced:", title)
 
     print("Done syncing.")
 

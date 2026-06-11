@@ -33,8 +33,16 @@ async def get_assignments_for_course(page, course):
         name = parts[0].strip()
         due_date_raw = parts[-1].strip()
 
-        link_el = row.locator("a")
-        link = ""
+        link_el = row.locator("a").first
+        link = course["url"]
+
+        if await link_el.count() > 0:
+            href = await link_el.get_attribute("href")
+            if href:
+                if href.startswith("http"):
+                    link = href
+                else:
+                    link = GRADESCOPE_URL.rstrip("/") + href
 
         if await link_el.count() > 0:
             href = await link_el.first.get_attribute("href")
