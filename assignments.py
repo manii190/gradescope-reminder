@@ -25,7 +25,13 @@ async def get_assignments_for_course(page, course):
         row = rows.nth(i)
         row_text = (await row.inner_text()).strip()
 
-        if "No Submission" not in row_text:
+        status = "No Submission"
+
+        if "Submitted" in row_text:
+            status = "Submitted"
+        elif "No Submission" in row_text:
+            status = "No Submission"
+        else:
             continue
 
         parts = row_text.split("\n")
@@ -59,7 +65,7 @@ async def get_assignments_for_course(page, course):
             "due_date_raw": due_date_raw,
             "due_date_iso": parse_due_date(due_date_raw),
             "link": link,
-            "status": "No Submission",
+            "status": status,
         })
 
     return assignments

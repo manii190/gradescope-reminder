@@ -14,7 +14,7 @@ async def main():
             "course": a["course_short"],
             "dueDate": a["due_date_raw"],
             "dueDateIso": a["due_date_iso"],
-            "status": a["status"],
+            "status": "submitted" if a["status"] == "Submitted" else "upcoming",
             "calendarSynced": True,
             "link": a["link"]
         })
