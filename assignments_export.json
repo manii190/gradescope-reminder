@@ -1,8 +1,18 @@
 [
   {
     "id": "1",
+    "title": "ICAs Week 3",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
+    "dueDate": "Jun 28 at 11:59PM",
+    "dueDateIso": "2026-06-28T23:59:00",
+    "status": "upcoming",
+    "calendarSynced": true,
+    "link": "https://www.gradescope.com/courses/1190177"
+  },
+  {
+    "id": "2",
     "title": "Short Project 03",
-    "course": "CSC 120\nIntroduction to Computer Programming II\n10 assignments",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
     "dueDate": "Jun 25 at 7:00PM",
     "dueDateIso": "2026-06-25T19:00:00",
     "status": "upcoming",
@@ -10,9 +20,9 @@
     "link": "https://www.gradescope.com/courses/1190177"
   },
   {
-    "id": "2",
+    "id": "3",
     "title": "Long Project 02",
-    "course": "CSC 120\nIntroduction to Computer Programming II\n10 assignments",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
     "dueDate": "Jun 23 at 7:00PM",
     "dueDateIso": "2026-06-23T19:00:00",
     "status": "upcoming",
@@ -20,9 +30,9 @@
     "link": "https://www.gradescope.com/courses/1190177"
   },
   {
-    "id": "3",
+    "id": "4",
     "title": "ICAs Week 2",
-    "course": "CSC 120\nIntroduction to Computer Programming II\n10 assignments",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
     "dueDate": "Jun 21 at 11:59PM",
     "dueDateIso": "2026-06-21T23:59:00",
     "status": "upcoming",
@@ -30,9 +40,9 @@
     "link": "https://www.gradescope.com/courses/1190177"
   },
   {
-    "id": "4",
+    "id": "5",
     "title": "Short Project 02",
-    "course": "CSC 120\nIntroduction to Computer Programming II\n10 assignments",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
     "dueDate": "Jun 18 at 7:00PM",
     "dueDateIso": "2026-06-18T19:00:00",
     "status": "upcoming",
@@ -40,9 +50,9 @@
     "link": "https://www.gradescope.com/courses/1190177"
   },
   {
-    "id": "5",
+    "id": "6",
     "title": "Long Project 01",
-    "course": "CSC 120\nIntroduction to Computer Programming II\n10 assignments",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
     "dueDate": "Jun 16 at 7:00PM",
     "dueDateIso": "2026-06-16T19:00:00",
     "status": "upcoming",
@@ -50,9 +60,9 @@
     "link": "https://www.gradescope.com/courses/1190177"
   },
   {
-    "id": "6",
+    "id": "7",
     "title": "ICA 01-1 (autograded)",
-    "course": "CSC 120\nIntroduction to Computer Programming II\n10 assignments",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
     "dueDate": "Jun 14 at 11:59PM",
     "dueDateIso": "2026-06-14T23:59:00",
     "status": "submitted",
@@ -60,9 +70,9 @@
     "link": "https://www.gradescope.com/courses/1190177/assignments/8097411/submissions/416851015"
   },
   {
-    "id": "7",
+    "id": "8",
     "title": "ICA 01-2 (autograded)",
-    "course": "CSC 120\nIntroduction to Computer Programming II\n10 assignments",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
     "dueDate": "Jun 14 at 11:59PM",
     "dueDateIso": "2026-06-14T23:59:00",
     "status": "submitted",
@@ -70,9 +80,9 @@
     "link": "https://www.gradescope.com/courses/1190177/assignments/8097412/submissions/416850993"
   },
   {
-    "id": "8",
+    "id": "9",
     "title": "ICA 01-3 (autograded)",
-    "course": "CSC 120\nIntroduction to Computer Programming II\n10 assignments",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
     "dueDate": "Jun 14 at 11:59PM",
     "dueDateIso": "2026-06-14T23:59:00",
     "status": "submitted",
@@ -80,9 +90,9 @@
     "link": "https://www.gradescope.com/courses/1190177/assignments/8097413/submissions/416850995"
   },
   {
-    "id": "9",
+    "id": "10",
     "title": "ICAs Week 1",
-    "course": "CSC 120\nIntroduction to Computer Programming II\n10 assignments",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
     "dueDate": "Jun 14 at 11:59PM",
     "dueDateIso": "2026-06-14T23:59:00",
     "status": "upcoming",
@@ -90,9 +100,9 @@
     "link": "https://www.gradescope.com/courses/1190177"
   },
   {
-    "id": "10",
+    "id": "11",
     "title": "Short Project 01",
-    "course": "CSC 120\nIntroduction to Computer Programming II\n10 assignments",
+    "course": "CSC 120\nIntroduction to Computer Programming II\n11 assignments",
     "dueDate": "Jun 13 at 7:00PM",
     "dueDateIso": "2026-06-13T19:00:00",
     "status": "submitted",
